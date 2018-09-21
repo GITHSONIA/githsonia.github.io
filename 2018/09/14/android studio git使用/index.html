@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="SONIA博客">
 <meta property="og:description" content="android studio git使用Git配置红色：指定仓库路径后，未Add的文件绿色：已Add，但未commit的文件墨蓝色：提交成功后修改过的文件 分支New Branch 新建分支Local Branch 本地分支Remote Branch 远程分支  切换分支CheckoutForce Checkout 当前分支不保存Smart Checkout 保留当前修改的代码到要切换的分支 Me">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-17T03:43:45.181Z">
+<meta property="og:updated_time" content="2018-09-21T11:42:56.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android studio git使用">
 <meta name="twitter:description" content="android studio git使用Git配置红色：指定仓库路径后，未Add的文件绿色：已Add，但未commit的文件墨蓝色：提交成功后修改过的文件 分支New Branch 新建分支Local Branch 本地分支Remote Branch 远程分支  切换分支CheckoutForce Checkout 当前分支不保存Smart Checkout 保留当前修改的代码到要切换的分支 Me">
@@ -349,13 +349,13 @@
 <p><strong>切换分支</strong><br>Checkout<br>Force Checkout 当前分支不保存<br>Smart Checkout 保留当前修改的代码到要切换的分支</p>
 <p><strong>Merge</strong> </p>
 <p>Smart Merge</p>
-<h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><p>切换分之前本地代码储存<br>Create Stash 创建成功后变成远程版本<br>UnStash 还原本地代码</p>
+<h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><p>切换分之前本地代码储存<br>Create Stash 创建成功后变成远程版本<br>UnStash 还原本地代码<br>![statsh] [id]<br>[id]: <a href="http://pf8ycyezs.bkt.clouddn.com/gitstash.png" target="_blank" rel="noopener">http://pf8ycyezs.bkt.clouddn.com/gitstash.png</a></p>
 <h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>创建后提交</p>
 <p><strong>提交或更新是与线上代码对比 有变动才合并？？</strong></p>
-<h2 id="Git命令"><a href="#Git命令" class="headerlink" title="Git命令"></a>Git命令</h2><p>git clone<br>git pull(项目根目录，不是git)<br>git log<br>版本回退<br>git reset –hard 24c6db</p>
+<h2 id="Git命令"><a href="#Git命令" class="headerlink" title="Git命令"></a>Git命令</h2><p>git clone<br>git pull(项目根目录，不是git)<br>git log<br>版本回退<br>git reset –hard 24c6db<br>储存message，不会提交到git记录<br>git stash save<br>重新应用缓存的stash<br>git stash pop<br>git stash apply<br>远程分支<br>git branch -a<br>本地分支<br>git branch<br>切换分支<br>git checkout master<br>合并分支<br>git merge master<br>删除本地分支<br>git branch -D master<br>删除远程分支<br>git push origin :master  (origin 后面有空格)(有效)<br>git push origin –delete master<br>创建本地分支<br>git branch master<br>提交<br>git commit -m balabala<br>已跟踪文件的内容发生了变化，但还没有放到暂存区时<br>git add<br>推远程<br>git push –set-upstream origin high_police</p>
 <h2 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h2><p><strong>Can’t update</strong><br>No tracked branch configured for branch task or the branch doesn’t exist. To make your branch track a remote branch call, for example, git branch –set-upstream-to origin/task task</p>
 <p>分支还没有提交 更新代码报的错</p>
-<p><strong>参考文章</strong><br><a href="https://www.cnblogs.com/ghylzwsb/archive/2017/03/12/GitOnAS.html" target="_blank" rel="noopener">全面介绍Android Studio中Git 的使用（一）</a></p>
+<p><strong>参考文章</strong><br><a href="https://www.cnblogs.com/ghylzwsb/archive/2017/03/12/GitOnAS.html" target="_blank" rel="noopener">全面介绍Android Studio中Git 的使用（一）</a><br><a href="https://www.cnblogs.com/tocy/p/git-stash-reference.html" target="_blank" rel="noopener">git-stash用法小结</a></p>
 
       
     </div>
