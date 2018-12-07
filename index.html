@@ -197,12 +197,32 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
           </a>
         </li>
       
@@ -314,6 +334,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -556,6 +598,28 @@ hexo deploy
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Android基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -585,7 +649,54 @@ hexo deploy
       
         
           
-            <h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3>
+            <h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><p>解析对象前判断<br>对象赋值后判断<br>toString前的判断<br>数组初始化，对象没有初始化</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>StringBuilder<br>可以预见最终字符串长度的时候，还可以指定capacity<br>Arrays.asList 数组转list</p>
+<h4 id="截取"><a href="#截取" class="headerlink" title="截取"></a>截取</h4><p>2017-04-05 06:17:30.673 –&gt; 2017-04-05 06:17<br>time = time.substring(0, time.lastIndexOf(‘:’));</p>
+<h4 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h4><p>append()</p>
+<p> split分隔符总结<br>1.字符 “|”, “*”, “+”, “-“, “.” 都得加上转义字符，前面加上”\“。<br>2.而如果是”\”，那么就得写成”\\“。<br>3.如果一个字符串中有多个分隔符，可以用”|”作为连字符。  </p>
+<h4 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h4><pre><code>val content = &quot;&lt;font&gt;&quot;+nameContent+&quot;&lt;font color = \&quot;#333333\&quot;&gt;&quot;+item!!.body.text+&quot;&lt;/font&gt;&lt;/font&gt;&quot;
+helper!!.setText(R.id.item_chat_tv,Utils.fromHtml(content))
+
+@SuppressWarnings(&quot;deprecation&quot;)
+public static Spanned fromHtml(String html) {
+    Spanned result;
+    if (Build.VERSION.SDK_INT &gt;=Build.VERSION_CODES.N{
+        result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+    } else {
+    result = Html.fromHtml(html);
+    }
+    return result;
+} 
+</code></pre><p>ROM_HTML_MODE_COMPACT：html块元素之间使用一个换行符分隔<br>FROM_HTML_MODE_LEGACY：html块元素之间使用两个换行符分隔  </p>
+<pre><code>SpannableString spannableString = new SpannableString(&quot;默认颜色红颜色&quot;);
+spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(&quot;#FF0000&quot;)), 4,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+tv.setText(spannableString)
+</code></pre><h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><pre><code>/**
+* size: 大小
+* dip: false，size单位为px，true，size单位为dip（默认为false）。
+*/    
+span = new AbsoluteSizeSpan(24, true);
+</code></pre><p><a href="https://www.jianshu.com/p/be0d79b9d5e6" target="_blank" rel="noopener">参考链接</a></p>
+<pre><code>/**
+* 格式化显示的数据，必须返回SpannableString对象
+*
+* @param priFix 前缀
+* @param content 内容
+* @return 返回格式化的数据
+*/
+private SpannableString makeFormatContent(String priFix, String content) {
+SpannableString spannableString = new SpannableString(priFix + content);
+spannableString.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.black_text)),
+priFix.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+spannableString.setSpan(new RelativeSizeSpan(1.33f),
+priFix.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+return spannableString;
+}
+</code></pre><h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>html<br>%02d 两列不够 补0</p>
+<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><p>System.currentTimeMillis()<br>三目运算：（条件）？（真）：（假） </p>
+<p>break用于完全结束一个循环，跳出循环体执行循环后面的语句  </p>
+<p>避免枚举<br>一个枚举可以为您的应用程序的classes.dex文件添加大约1.0到1.4 KB的大小 。这些添加可以快速累积到复杂系统或共享库。如果可能，请考虑使用@IntDef注释，这种类型转换保留了枚举的所有类型安全优势。</p>
+
           
         
       
@@ -705,7 +816,7 @@ hexo deploy
         
           
             <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><blockquote>
-<p><a href="">图解HTTP</a></p>
+<p><a href="https://githsonia.github.io/2018/12/07/%E5%9B%BE%E8%A7%A3HTTP/" target="_blank" rel="noopener">图解HTTP</a></p>
 </blockquote>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><blockquote>
 <p><a href="">剑指Offer</a></p>
@@ -725,9 +836,12 @@ hexo deploy
 </blockquote>
 <p>Android开发艺术探索</p>
 <blockquote>
-<p><a href="">性能优化</a><br><a href="">Android源码</a></p>
+<p><a href="">性能优化</a></p>
 </blockquote>
-<p> <img src="https://portal.qiniu.com/bucket/sonia-image/resource" alt="alt text"></p>
+<blockquote>
+<p><a href="">Android源码</a></p>
+</blockquote>
+<p> <img src="http://photo.yupoo.com/sonia2018/f12517d2/c1058e06.png" alt="alt text"></p>
 
           
         
@@ -1038,6 +1152,136 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sonia.github.io/2018/09/14/Android控件常用属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SONIA">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ic_launcher.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONIA博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/14/Android控件常用属性/" itemprop="url">Android控件常用属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T17:37:52+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h3><p><strong>scaleType</strong></p>
+<p> <img src="http://www.2cto.com/uploadfile/Collfiles/20141103/201411030837265.png" alt="alt text"></p>
+<h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><p><strong>inputType </strong></p>
+<p>number 数字<br>phone 数字和特殊字符<br>text 只能输入一行<br>maxLines 最大字符数</p>
+<h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p>listSelector 点击颜色<br>divider 分割线颜色<br>dividerHeight 分割线高度<br>listSelector=”@color/transparent” 选中颜色</p>
+<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p>recyclerView.setNestedScrollingEnabled(false); NestedScrollView 冲突     </p>
+<h3 id="光标拦截"><a href="#光标拦截" class="headerlink" title="光标拦截"></a>光标拦截</h3><p><em>上一级或上上级 ScrollView不可以</em><br>android:focusable=”true”<br>android:focusableInTouchMode=”true”  </p>
+<h3 id="ScrollView"><a href="#ScrollView" class="headerlink" title="ScrollView"></a>ScrollView</h3><p>android:fillViewport=”true”<br>使得子布局高度和scrollview一样，而当子布局高度超过scrollview的高度时，这个属性就没有意义了<br>.fullScroll(ScrollView.FOCUS_DOWN); 滚到到底部 ScrollView.FOCUS_UP<br>.srcollto 滚动到指定位置</p>
+<h3 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h3><p>.setOffscreenPageLimit(2)</p>
+<h3 id="Spinner"><a href="#Spinner" class="headerlink" title="Spinner"></a>Spinner</h3><p>entries 数组<br>右侧图片 background</p>
+<p><strong>Color.parseColor(“#ffffff”)); 必须6位</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sonia.github.io/2018/09/14/Kotlin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1122,136 +1366,6 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
 7. toChar() =&gt; 转换为字符型
 8. toString() =&gt; 转换为字符串型
 </code></pre><p>let 判断空<br>with 重复<br>遍历 for (item:MapPoliceBean in list){}<br>position adapter.data.indexOf(item)<br>var tbList: MutableList<testbean> = ArrayList()<br>这样初始化有add方法</testbean></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sonia.github.io/2018/09/14/Android控件常用属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SONIA">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ic_launcher.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SONIA博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/14/Android控件常用属性/" itemprop="url">Android控件常用属性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T17:37:52+08:00">
-                2018-09-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h3><p><strong>scaleType</strong></p>
-<p> <img src="http://www.2cto.com/uploadfile/Collfiles/20141103/201411030837265.png" alt="alt text"></p>
-<h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><p><strong>inputType </strong></p>
-<p>number 数字<br>phone 数字和特殊字符<br>text 只能输入一行<br>maxLines 最大字符数</p>
-<h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p>listSelector 点击颜色<br>divider 分割线颜色<br>dividerHeight 分割线高度<br>listSelector=”@color/transparent” 选中颜色</p>
-<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p>recyclerView.setNestedScrollingEnabled(false); NestedScrollView 冲突     </p>
-<h3 id="光标拦截"><a href="#光标拦截" class="headerlink" title="光标拦截"></a>光标拦截</h3><p><em>上一级或上上级 ScrollView不可以</em><br>android:focusable=”true”<br>android:focusableInTouchMode=”true”  </p>
-<h3 id="ScrollView"><a href="#ScrollView" class="headerlink" title="ScrollView"></a>ScrollView</h3><p>android:fillViewport=”true”<br>使得子布局高度和scrollview一样，而当子布局高度超过scrollview的高度时，这个属性就没有意义了<br>.fullScroll(ScrollView.FOCUS_DOWN); 滚到到底部 ScrollView.FOCUS_UP<br>.srcollto 滚动到指定位置</p>
-<h3 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h3><p>.setOffscreenPageLimit(2)</p>
-<h3 id="Spinner"><a href="#Spinner" class="headerlink" title="Spinner"></a>Spinner</h3><p>entries 数组<br>右侧图片 background</p>
-<p><strong>Color.parseColor(“#ffffff”)); 必须6位</strong></p>
 
           
         
@@ -1481,6 +1595,15 @@ hexo deploy
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             

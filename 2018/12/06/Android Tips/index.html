@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="空指针">
+<meta name="description" content="空指针解析对象前判断对象赋值后判断toString前的判断数组初始化，对象没有初始化 字符串StringBuilder可以预见最终字符串长度的时候，还可以指定capacityArrays.asList 数组转list 截取2017-04-05 06:17:30.673 –&amp;gt; 2017-04-05 06:17time = time.substring(0, time.lastIndexOf(‘">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Tips">
 <meta property="og:url" content="https://sonia.github.io/2018/12/06/Android Tips/index.html">
 <meta property="og:site_name" content="SONIA博客">
-<meta property="og:description" content="空指针">
+<meta property="og:description" content="空指针解析对象前判断对象赋值后判断toString前的判断数组初始化，对象没有初始化 字符串StringBuilder可以预见最终字符串长度的时候，还可以指定capacityArrays.asList 数组转list 截取2017-04-05 06:17:30.673 –&amp;gt; 2017-04-05 06:17time = time.substring(0, time.lastIndexOf(‘">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T07:54:46.193Z">
+<meta property="og:updated_time" content="2018-12-07T09:22:25.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Tips">
-<meta name="twitter:description" content="空指针">
+<meta name="twitter:description" content="空指针解析对象前判断对象赋值后判断toString前的判断数组初始化，对象没有初始化 字符串StringBuilder可以预见最终字符串长度的时候，还可以指定capacityArrays.asList 数组转list 截取2017-04-05 06:17:30.673 –&amp;gt; 2017-04-05 06:17time = time.substring(0, time.lastIndexOf(‘">
 
 
 
@@ -201,12 +201,32 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
           </a>
         </li>
       
@@ -317,6 +337,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Android基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -344,7 +386,54 @@
       
 
       
-        <h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3>
+        <h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><p>解析对象前判断<br>对象赋值后判断<br>toString前的判断<br>数组初始化，对象没有初始化</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>StringBuilder<br>可以预见最终字符串长度的时候，还可以指定capacity<br>Arrays.asList 数组转list</p>
+<h4 id="截取"><a href="#截取" class="headerlink" title="截取"></a>截取</h4><p>2017-04-05 06:17:30.673 –&gt; 2017-04-05 06:17<br>time = time.substring(0, time.lastIndexOf(‘:’));</p>
+<h4 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h4><p>append()</p>
+<p> split分隔符总结<br>1.字符 “|”, “*”, “+”, “-“, “.” 都得加上转义字符，前面加上”\“。<br>2.而如果是”\”，那么就得写成”\\“。<br>3.如果一个字符串中有多个分隔符，可以用”|”作为连字符。  </p>
+<h4 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h4><pre><code>val content = &quot;&lt;font&gt;&quot;+nameContent+&quot;&lt;font color = \&quot;#333333\&quot;&gt;&quot;+item!!.body.text+&quot;&lt;/font&gt;&lt;/font&gt;&quot;
+helper!!.setText(R.id.item_chat_tv,Utils.fromHtml(content))
+
+@SuppressWarnings(&quot;deprecation&quot;)
+public static Spanned fromHtml(String html) {
+    Spanned result;
+    if (Build.VERSION.SDK_INT &gt;=Build.VERSION_CODES.N{
+        result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+    } else {
+    result = Html.fromHtml(html);
+    }
+    return result;
+} 
+</code></pre><p>ROM_HTML_MODE_COMPACT：html块元素之间使用一个换行符分隔<br>FROM_HTML_MODE_LEGACY：html块元素之间使用两个换行符分隔  </p>
+<pre><code>SpannableString spannableString = new SpannableString(&quot;默认颜色红颜色&quot;);
+spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(&quot;#FF0000&quot;)), 4,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+tv.setText(spannableString)
+</code></pre><h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><pre><code>/**
+* size: 大小
+* dip: false，size单位为px，true，size单位为dip（默认为false）。
+*/    
+span = new AbsoluteSizeSpan(24, true);
+</code></pre><p><a href="https://www.jianshu.com/p/be0d79b9d5e6" target="_blank" rel="noopener">参考链接</a></p>
+<pre><code>/**
+* 格式化显示的数据，必须返回SpannableString对象
+*
+* @param priFix 前缀
+* @param content 内容
+* @return 返回格式化的数据
+*/
+private SpannableString makeFormatContent(String priFix, String content) {
+SpannableString spannableString = new SpannableString(priFix + content);
+spannableString.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.black_text)),
+priFix.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+spannableString.setSpan(new RelativeSizeSpan(1.33f),
+priFix.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+return spannableString;
+}
+</code></pre><h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>html<br>%02d 两列不够 补0</p>
+<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><p>System.currentTimeMillis()<br>三目运算：（条件）？（真）：（假） </p>
+<p>break用于完全结束一个循环，跳出循环体执行循环后面的语句  </p>
+<p>避免枚举<br>一个枚举可以为您的应用程序的classes.dex文件添加大约1.0到1.4 KB的大小 。这些添加可以快速累积到复杂系统或共享库。如果可能，请考虑使用@IntDef注释，这种类型转换保留了枚举的所有类型安全优势。</p>
+
       
     </div>
     
@@ -474,6 +563,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
@@ -513,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#空指针"><span class="nav-number">1.</span> <span class="nav-text">空指针</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#空指针"><span class="nav-number">1.</span> <span class="nav-text">空指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#截取"><span class="nav-number">2.1.</span> <span class="nav-text">截取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拼接"><span class="nav-number">2.2.</span> <span class="nav-text">拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜色"><span class="nav-number">2.3.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小"><span class="nav-number">2.4.</span> <span class="nav-text">大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占位符"><span class="nav-number">3.</span> <span class="nav-text">占位符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间戳"><span class="nav-number">4.</span> <span class="nav-text">时间戳</span></a></li></ol></div>
             
 
           </div>
