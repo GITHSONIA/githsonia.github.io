@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="高德地图高德地图AMap移动到地图中心mAMap?.moveCamera(CameraUpdateFactory.changeLatLng(marker.position))设置缩放级别mAMap?.moveCamera(CameraUpdateFactory.zoomTo(18.toFloat()))   Marker设置图标marker.setIcon(fromBitmap(BitmapFac">
-<meta name="keywords" content="Android">
+<meta name="description" content="Git使用Git配置红色：指定仓库路径后，未Add的文件绿色：已Add，但未commit的文件墨蓝色：提交成功后修改过的文件 分支New Branch 新建分支Local Branch 本地分支Remote Branch 远程分支  切换分支CheckoutForce Checkout 当前分支不保存Smart Checkout 保留当前修改的代码到要切换的分支 Merge  Smart Merg">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高德地图">
-<meta property="og:url" content="https://sonia.github.io/2018/09/14/高德地图/index.html">
+<meta property="og:title" content="android studio git使用">
+<meta property="og:url" content="https://sonia.github.io/2018/09/14/Git使用/index.html">
 <meta property="og:site_name" content="SONIA博客">
-<meta property="og:description" content="高德地图高德地图AMap移动到地图中心mAMap?.moveCamera(CameraUpdateFactory.changeLatLng(marker.position))设置缩放级别mAMap?.moveCamera(CameraUpdateFactory.zoomTo(18.toFloat()))   Marker设置图标marker.setIcon(fromBitmap(BitmapFac">
+<meta property="og:description" content="Git使用Git配置红色：指定仓库路径后，未Add的文件绿色：已Add，但未commit的文件墨蓝色：提交成功后修改过的文件 分支New Branch 新建分支Local Branch 本地分支Remote Branch 远程分支  切换分支CheckoutForce Checkout 当前分支不保存Smart Checkout 保留当前修改的代码到要切换的分支 Merge  Smart Merg">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-14T09:49:58.952Z">
+<meta property="og:updated_time" content="2019-04-04T06:37:43.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高德地图">
-<meta name="twitter:description" content="高德地图高德地图AMap移动到地图中心mAMap?.moveCamera(CameraUpdateFactory.changeLatLng(marker.position))设置缩放级别mAMap?.moveCamera(CameraUpdateFactory.zoomTo(18.toFloat()))   Marker设置图标marker.setIcon(fromBitmap(BitmapFac">
+<meta name="twitter:title" content="android studio git使用">
+<meta name="twitter:description" content="Git使用Git配置红色：指定仓库路径后，未Add的文件绿色：已Add，但未commit的文件墨蓝色：提交成功后修改过的文件 分支New Branch 新建分支Local Branch 本地分支Remote Branch 远程分支  切换分支CheckoutForce Checkout 当前分支不保存Smart Checkout 保留当前修改的代码到要切换的分支 Merge  Smart Merg">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://sonia.github.io/2018/09/14/高德地图/"/>
+  <link rel="canonical" href="https://sonia.github.io/2018/09/14/Git使用/"/>
 
 
 
 
 
-  <title>高德地图 | SONIA博客</title>
+  <title>android studio git使用 | SONIA博客</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sonia.github.io/2018/09/14/高德地图/">
+    <link itemprop="mainEntityOfPage" href="https://sonia.github.io/2018/09/14/Git使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SONIA">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">高德地图</h1>
+          <h1 class="post-title" itemprop="name headline">android studio git使用</h1>
         
 
         <div class="post-meta">
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T17:44:15+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T17:53:01+08:00">
                 2018-09-14
               </time>
             
@@ -364,17 +364,21 @@
       
 
       
-        <h1 id="高德地图"><a href="#高德地图" class="headerlink" title="高德地图"></a>高德地图</h1><h1 id="高德地图-1"><a href="#高德地图-1" class="headerlink" title="高德地图"></a>高德地图</h1><h2 id="AMap"><a href="#AMap" class="headerlink" title="AMap"></a>AMap</h2><p><strong>移动到地图中心</strong><br>mAMap?.moveCamera(CameraUpdateFactory.changeLatLng(marker.position))<br><strong>设置缩放级别</strong><br>mAMap?.moveCamera(CameraUpdateFactory.zoomTo(18.toFloat()))  </p>
-<h2 id="Marker"><a href="#Marker" class="headerlink" title="Marker"></a>Marker</h2><p><strong>设置图标</strong><br>marker.setIcon(fromBitmap(BitmapFactory.decodeResource(resources, R.mipmap.icon_location_green)))<br><strong>设置当前marker在最上面</strong><br>marker.setToTop()<br><strong>多个Marker标记自动缩放全部显示在屏幕中</strong></p>
-<pre><code>//存放所有点的经纬度
-LatLngBounds.Builder boundsBuilder = new LatLngBounds.Builder();
-for(int i=0;i&lt;markers.size();i++){
-    //把所有点都include进去（LatLng类型）
-    boundsBuilder.include(markers.get(i).getPosition());
-}
-//第二个参数为四周留空宽度
-aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15));
-</code></pre><p><strong>api文档</strong><a href="http://a.amap.com/lbs/static/unzip/Android_Map_Doc/index.html" target="_blank" rel="noopener">http://a.amap.com/lbs/static/unzip/Android_Map_Doc/index.html</a></p>
+        <h2 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h2><h3 id="Git配置"><a href="#Git配置" class="headerlink" title="Git配置"></a>Git配置</h3><p>红色：指定仓库路径后，未Add的文件<br>绿色：已Add，但未commit的文件<br>墨蓝色：提交成功后修改过的文件</p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>New Branch 新建分支<br>Local Branch 本地分支<br>Remote Branch 远程分支 </p>
+<p><strong>切换分支</strong><br>Checkout<br>Force Checkout 当前分支不保存<br>Smart Checkout 保留当前修改的代码到要切换的分支</p>
+<p><strong>Merge</strong> </p>
+<p>Smart Merge</p>
+<h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><p>切换分之前本地代码储存<br>Create Stash 创建成功后变成远程版本<br>UnStash 还原本地代码  </p>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p>创建后提交</p>
+<p><strong>提交或更新是与线上代码对比 有变动才合并？？</strong></p>
+<h2 id="Git命令"><a href="#Git命令" class="headerlink" title="Git命令"></a>Git命令</h2><table><br>    <tr><br>        <td>git clone</td><br>    </tr><br>    <tr><br>        <td>git pull</td><br>        <td>项目根目录，不是git</td><br>    </tr><br>    <tr><br>        <td>git log</td><br>    </tr><br>    <tr><br>        <td>git reset –hard 24c6db</td><br>        <td>版本回退(之后的版本都没有了push会报the tip of your current branch is behind可以用push -f)</td><br>    </tr><br>    <tr><br>        <td>git revert</td><br>        <td>反做(重新生成一条新纪录，可保留该目标版本后面的版本)</td><br>    </tr><br>    <tr><br>        <td>git stash save</td><br>        <td>储存message，不会提交到git记录 </td><br>    </tr><br>    <tr><br>        <td>git stash pop</td><br>        <td rowspan="2">重新应用缓存的stash</td><br>    </tr><br>    <tr><br>        <td>git stash apply</td><br>    </tr><br>    <tr><br>        <td>git branch -a </td><br>        <td>远程分支</td><br>    </tr><br>    <tr><br>        <td>git branch </td><br>        <td>本地分支</td><br>    </tr><br>    <tr><br>        <td>git checkout master</td><br>        <td>切换分支</td><br>    </tr><br>    <tr><br>        <td>git merge master</td><br>        <td>合并分支</td><br>    </tr><br>    <tr><br>        <td>git branch -D master</td><br>        <td>删除本地分支</td><br>    </tr><br>    <tr><br>        <td>git push origin :master</td><br>        <td rowspan="2">删除远程分支</td><br>    </tr><br>    <tr><br>        <td>git push origin –delete master</td><br>    </tr><br>    <tr><br>        <td>git branch master</td><br>        <td>创建本地分支</td><br>    </tr><br>    <tr><br>        <td>git commit -m commit message</td><br>        <td>提交</td><br>    </tr><br>    <tr><br>        <td>git add</td><br>        <td>已跟踪文件的内容发生了变化，但还没有放到暂存区时</td><br>    </tr><br>    <tr><br>        <td>git tag</td><br>        <td>标签</td><br>    </tr><br>    <tr><br>        <td>git tag -a v1.1.0 -m ‘relesae 1.1.0’</td><br>        <td>标签</td><br>    </tr><br>    <tr><br>        <td>git push origin :refs/tags/V1.2</td><br>        <td>标签</td><br>    </tr><br>    <tr><br>        <td>git push –set-upstream origin high_police</td><br>        <td>推远程(所以以上操作不push应该都不会到远程)</td><br>    </tr><br></table>
+
+<p>git clone<br>git pull  (项目根目录，不是git)<br>git log<br>git reset –hard 24c6db  版本回退(之后的版本都没有了push会报the tip of your current branch is behind可以用push -f)<br>git revert 反做(重新生成一条新纪录，可保留该目标版本后面的版本)<br>git stash save  储存message，不会提交到git记录<br>git stash pop  重新应用缓存的stash<br>git stash apply<br>git branch -a  远程分支<br>git branch  本地分支<br>git checkout master  切换分支<br>git merge master  合并分支<br>git branch -D master  删除本地分支<br>删除远程分支<br>git push origin :master  (origin 后面有空格)(有效)<br>git push origin –delete master<br>git branch master  创建本地分支<br>git commit -m balabala  提交<br>git add  已跟踪文件的内容发生了变化，但还没有放到暂存区时<br>git push –set-upstream origin high_police 推远程(所以以上操作不push应该都不会到远程) </p>
+<h2 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h2><p>.gitignore 要生效的前提是 要忽略的文件 没有被加入到VCS 中，如果远程仓库已经有了这些文件，我们在用.gitignore去忽略是不会生效的。</p>
+<h2 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h2><p><strong>Can’t update</strong><br>No tracked branch configured for branch task or the branch doesn’t exist. To make your branch track a remote branch call, for example, git branch –set-upstream-to origin/task task</p>
+<p>分支还没有提交 更新代码报的错</p>
+<p><strong>参考文章</strong><br><a href="https://www.cnblogs.com/ghylzwsb/archive/2017/03/12/GitOnAS.html" target="_blank" rel="noopener">全面介绍Android Studio中Git 的使用（一）</a><br><a href="https://www.cnblogs.com/tocy/p/git-stash-reference.html" target="_blank" rel="noopener">git-stash用法小结</a></p>
 
       
     </div>
@@ -392,7 +396,7 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
         </div>
       
@@ -405,8 +409,8 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/14/Kotlin/" rel="next" title="Kotlin">
-                <i class="fa fa-chevron-left"></i> Kotlin
+              <a href="/2018/09/14/高德地图/" rel="next" title="高德地图">
+                <i class="fa fa-chevron-left"></i> 高德地图
               </a>
             
           </div>
@@ -415,8 +419,8 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/14/Git使用/" rel="prev" title="android studio git使用">
-                android studio git使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/06/Android Tips/" rel="prev" title="Android Tips">
+                Android Tips <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +557,7 @@ aMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 15
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高德地图"><span class="nav-number">1.</span> <span class="nav-text">高德地图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高德地图-1"><span class="nav-number">2.</span> <span class="nav-text">高德地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AMap"><span class="nav-number">2.1.</span> <span class="nav-text">AMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Marker"><span class="nav-number">2.2.</span> <span class="nav-text">Marker</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git使用"><span class="nav-number">1.</span> <span class="nav-text">Git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git配置"><span class="nav-number">1.1.</span> <span class="nav-text">Git配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-number">1.2.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stash"><span class="nav-number">1.3.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag"><span class="nav-number">1.4.</span> <span class="nav-text">Tag</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git命令"><span class="nav-number">2.</span> <span class="nav-text">Git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ignore"><span class="nav-number">3.</span> <span class="nav-text">ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的错误"><span class="nav-number">4.</span> <span class="nav-text">遇到的错误</span></a></li></ol></div>
             
 
           </div>

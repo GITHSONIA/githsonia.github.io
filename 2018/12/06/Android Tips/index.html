@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="SONIA博客">
 <meta property="og:description" content="空指针解析对象前判断对象赋值后判断toString前的判断数组初始化，对象没有初始化 字符串StringBuilder可以预见最终字符串长度的时候，还可以指定capacityArrays.asList 数组转list 截取2017-04-05 06:17:30.673 –&amp;gt; 2017-04-05 06:17time = time.substring(0, time.lastIndexOf(‘">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T09:22:25.024Z">
+<meta property="og:updated_time" content="2019-03-14T03:19:30.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Tips">
 <meta name="twitter:description" content="空指针解析对象前判断对象赋值后判断toString前的判断数组初始化，对象没有初始化 字符串StringBuilder可以预见最终字符串长度的时候，还可以指定capacityArrays.asList 数组转list 截取2017-04-05 06:17:30.673 –&amp;gt; 2017-04-05 06:17time = time.substring(0, time.lastIndexOf(‘">
@@ -429,10 +429,17 @@ spannableString.setSpan(new RelativeSizeSpan(1.33f),
 priFix.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 return spannableString;
 }
-</code></pre><h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>html<br>%02d 两列不够 补0</p>
-<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><p>System.currentTimeMillis()<br>三目运算：（条件）？（真）：（假） </p>
+</code></pre><h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><p>html  </p>
+<pre><code>&amp;#32;  普通的英文半角空格
+&amp;#160; == &amp;nbsp; == &amp;#xA0; == no-break space （普通的英文半角空格但不换行）
+&amp;#12288; == 中文全角空格 （一个中文宽度）
+&amp;#8194; == &amp;ensp; == en空格 （半个中文宽度）
+&amp;#8195; == &amp;emsp; == em空格 （一个中文宽度）
+&amp;#8197; == 四分之一em空格 （四分之一中文宽度）
+%02d (整数不够两列前边补0)
+</code></pre><h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><p>System.currentTimeMillis()  </p>
 <p>break用于完全结束一个循环，跳出循环体执行循环后面的语句  </p>
-<p>避免枚举<br>一个枚举可以为您的应用程序的classes.dex文件添加大约1.0到1.4 KB的大小 。这些添加可以快速累积到复杂系统或共享库。如果可能，请考虑使用@IntDef注释，这种类型转换保留了枚举的所有类型安全优势。</p>
+<p>避免枚举<br>一个枚举可以为您的应用程序的classes.dex文件添加大约1.0到1.4 KB的大小 。这些添加可以快速累积到复杂系统或共享库。如果可能，请考虑使用@IntDef注释，这种类型转换保留了枚举的所有类型安全优势。–&gt;int–&gt;string 可用map</p>
 
       
     </div>
@@ -463,8 +470,8 @@ return spannableString;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/06/目录/" rel="next" title="目录">
-                <i class="fa fa-chevron-left"></i> 目录
+              <a href="/2018/09/14/Git使用/" rel="next" title="android studio git使用">
+                <i class="fa fa-chevron-left"></i> android studio git使用
               </a>
             
           </div>
@@ -473,8 +480,8 @@ return spannableString;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/07/Markdown笔记/" rel="prev" title="Markdown笔记">
-                Markdown笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/06/目录/" rel="prev" title="目录">
+                目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,7 +563,7 @@ return spannableString;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

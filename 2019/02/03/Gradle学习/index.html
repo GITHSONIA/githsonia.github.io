@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="SONIA博客">
 <meta property="og:description" content="//整个项目的共享遍历 只要各个module的build.gradle文件引用就可以ext//通用配置subprojects   //全局引用某个modle中的文件 项目根目录的build.gradle allprojects {     repositories {         ...         flatDir{             dirs &amp;apos;../app/libs&amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-14T10:46:52.224Z">
+<meta property="og:updated_time" content="2019-04-04T05:52:37.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle">
 <meta name="twitter:description" content="//整个项目的共享遍历 只要各个module的build.gradle文件引用就可以ext//通用配置subprojects   //全局引用某个modle中的文件 项目根目录的build.gradle allprojects {     repositories {         ...         flatDir{             dirs &amp;apos;../app/libs&amp;a">
@@ -374,6 +374,43 @@
         }
     }
 }
+</code></pre><p>Maven Repository Maven Central 和 JCenter<br><a href="https://issues.sonatype.org/secure/Dashboard.jspa" target="_blank" rel="noopener">https://issues.sonatype.org/secure/Dashboard.jspa</a><br>Bintray 签名<br><a href="https://www.gnupg.org/index.html" target="_blank" rel="noopener">https://www.gnupg.org/index.html</a><br>参考<br>《Android高级开发》第8章Gradle必知必会 第9章通过Gradle打包发布函数库到JCenter和Maven Central</p>
+<p><a href="https://www.jianshu.com/p/1460261c3b36" title="Tinker热更新源码接入以及分析" target="_blank" rel="noopener">Tinker热更新源码接入以及分析</a><br><strong>tinker-build patch生成接入部分：</strong><br>tinker-patch-gradle-plugin将gradle-mvn-push注释，用本地的仓库配置</p>
+<ul>
+<li>build.gradle依赖Maven库 apply plugin: ‘maven’</li>
+<li>配置 </li>
+</ul>
+<p>代码：</p>
+<pre><code>uploadArchives {
+    repositories {
+        mavenDeployer {
+        repository(url: uri(&apos;repo&apos;))
+        //设置插件的GAV参数
+        pom.groupId = &apos;com.tencent.tinker&apos;
+        pom.artifactId = &apos;TinkerPatchPlugin&apos;
+        pom.version = 1.0
+        }
+    }
+}
+</code></pre><ul>
+<li><p>运行tinker-build:tinker-patch-gradle-plugin→upload→uploadArchives</p>
+</li>
+<li><p>项目根目录build.gradle配置</p>
+</li>
+</ul>
+<p>代码</p>
+<pre><code> repositories {
+    ...
+    //设置本地Gradle插件
+    maven{
+        url uri(&quot;D:/tinker-1.9.11/tinker-build/tinker-patch-gradle-plugin/repo&quot;)
+    }
+}
+ dependencies {
+    ...
+    //设置本地Gradle插件
+    classpath &apos;com.tencent.tinker:TinkerPatchPlugin:1.0&apos;
+}
 </code></pre>
       
     </div>
@@ -404,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/07/图解HTTP/" rel="next" title="图解HTTP">
-                <i class="fa fa-chevron-left"></i> 图解HTTP
+              <a href="/2019/02/03/Flutter/" rel="next" title="Flutter">
+                <i class="fa fa-chevron-left"></i> Flutter
               </a>
             
           </div>
@@ -414,8 +451,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/03/Flutter/" rel="prev" title="Flutter">
-                Flutter <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/14/前端学习/" rel="prev" title="前端学习">
+                前端学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
